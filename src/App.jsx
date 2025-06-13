@@ -90,7 +90,11 @@ function App() {
       path: '/admin',
       element: <Navigate to="/dashboard" />
     }
-  ]);
+  ]
+    , {
+      basename: '/Real-Estate-App',
+    }
+  );
 
   return (
     <>
