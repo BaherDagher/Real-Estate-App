@@ -15,7 +15,7 @@ export default function Row2() {
     // Calculate properties per district
     const propertiesPerDistrict = zonesList.map(zone => {
         const count = allProperties.filter(
-            prop => prop.location?.district === zone.district && prop.location?.city === zone.city
+            prop => prop.district === zone.district && prop.city === zone.city
         ).length;
 
         return {
