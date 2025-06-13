@@ -1,0 +1,63 @@
+.loaderContainer.light {
+    --bg-color: white;
+    --text-color: #6c5ce7;
+    --stroke-color: #6c5ce7;
+    --clapper-fill: #fff;
+}
+
+.loaderContainer.dark {
+    --bg-color: #121212;
+    --text-color: #a29bfe;
+    --stroke-color: #a29bfe;
+    --clapper-fill: #2d2d2d;
+}
+
+.loaderContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color);
+    z-index: 9999;
+}
+
+.preloader {
+    text-align: center;
+    max-width: 20em;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.preloader__text {
+    position: relative;
+    height: 1.5em;
+    margin-top: 1em;
+}
+
+.preloader__msg {
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    animation: fadeInOut 2.5s ease-in-out infinite;
+}
+
+
+@keyframes fadeInOut {
+
+    0%,
+    100% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
