@@ -26,7 +26,7 @@ const FavouritesContextProvider = ({ children }) => {
     if (!currentUser || !['user', 'admin'].includes(currentUser.role)) {
       toast.warn('Login to add property to favourites!');
       setTimeout(() => {
-        window.location.href = '/Real-Estate-App/login';
+        window.location.href = 'login';
       }, 1500);
       return;
     }

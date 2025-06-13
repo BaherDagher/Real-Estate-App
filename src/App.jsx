@@ -91,9 +91,6 @@ function App() {
       element: <Navigate to="/dashboard" />
     }
   ]
-    , {
-      basename: '/Real-Estate-App',
-    }
   );
 
   return (
