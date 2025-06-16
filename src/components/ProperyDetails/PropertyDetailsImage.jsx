@@ -33,13 +33,18 @@ const PropertyDetailsImage = ({ property }) => {
 
     return (
         <>
-            <Box sx={{ position: "relative", borderRadius: 4, overflow: "hidden" }}>
-                <img
+            <Box sx={{ position: "relative", borderRadius: 4, overflow: "hidden", height: { xs: '200px', md: '400px' } }}>
+                <Box
+                    component="img"
                     src={property.image_url}
                     alt={property.name}
-                    style={{ width: "100%", height: "400px", display: "block" }}
+                    sx={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "fill",
+                        display: "block"
+                    }}
                 />
-
                 <Box
                     sx={{
                         position: "absolute",

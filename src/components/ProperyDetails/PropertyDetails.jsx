@@ -107,11 +107,11 @@ const PropertyDetails = () => {
   const Row = ({ label, value }) => (
     <Box sx={{ display: "flex", mb: 1 }}>
       <Box sx={{ minWidth: labelWidth }}>
-        <Typography variant="body1" sx={{ color: theme.palette.text.primary, fontWeight: 600 }}>
+        <Typography variant="body1" sx={{ color: theme.palette.text.primary, fontWeight: 600, fontSize: { xs: 14, md: 16 } }}>
           {label}
         </Typography>
       </Box>
-      <Typography variant="body1" sx={{ color: theme.palette.text.secondary }}>
+      <Typography variant="body1" sx={{ color: theme.palette.text.secondary, fontSize: { xs: 14, md: 16 } }}>
         {value}
       </Typography>
     </Box>
@@ -122,7 +122,7 @@ const PropertyDetails = () => {
 
   return (
 
-    <Box sx={{ paddingX: 12, margin: "auto" }}>
+    <Box sx={{ paddingX: { xs: 3, md: 12 }, margin: "auto" }}>
 
       {/* This is the Head Title */}
       <Typography
@@ -135,7 +135,7 @@ const PropertyDetails = () => {
           mb: 5,
           mt: 6,
           color: '#FF8000',
-          fontSize: { xs: '20', sm: '30px', md: '2.5rem' },
+          fontSize: { xs: '22px', sm: '30px', md: '2.5rem' },
         }}
       >
         Book Your Property Now!
@@ -159,7 +159,6 @@ const PropertyDetails = () => {
 
         <Box sx={{ width: { xs: '100%', md: '30%' } }}>
           <PropertyLocationMap
-            key={property.id}
             district={property.district}
             city={property.city}
           />
@@ -190,17 +189,17 @@ const PropertyDetails = () => {
 
             {/* Starting of LeftSide First Section */}
             <Box sx={{ mb: 5 }}>
-              <Typography variant="h5" sx={{ fontWeight: "bold", color: theme.palette.text.primary, my: 2 }}>
+              <Typography variant="h5" sx={{ fontWeight: "bold", color: theme.palette.text.primary, my: 2, fontSize: { xs: 20, md: 22 } }}>
                 {property.name}
               </Typography>
 
-              <Typography variant="body1" sx={{ color: theme.palette.text.secondary, my: 2 }}>
+              <Typography variant="body1" sx={{ color: theme.palette.text.secondary, my: 2, fontSize: { xs: 14, md: 16 } }}>
                 {property.description}
               </Typography>
 
               <Box sx={{ display: "flex", alignItems: "center", }}>
                 <LocationOnIcon sx={{ color: primaryColor, mr: 1 }} />
-                <Typography variant="body2" sx={{ color: theme.palette.text.secondary }}>
+                <Typography variant="body2" sx={{ color: theme.palette.text.secondary, fontSize: { xs: 13, md: 15 } }}>
                   {property.address}, {property.district}, {property.city}
                 </Typography>
               </Box>
@@ -211,7 +210,7 @@ const PropertyDetails = () => {
             <Box sx={{ mt: 2 }}>
               <Typography
                 variant="h6"
-                sx={{ fontWeight: 'bold', color: theme.palette.text.primary, mb: 2 }}
+                sx={{ fontWeight: 'bold', color: theme.palette.text.primary, mb: 2, fontSize: { xs: 18, md: 20 } }}
               >
                 Property Information
               </Typography>
@@ -265,7 +264,7 @@ const PropertyDetails = () => {
             <Box sx={{ mt: 4 }}>
               <Typography
                 variant="h6"
-                sx={{ fontWeight: 'bold', color: theme.palette.text.primary, mb: 3 }}
+                sx={{ fontWeight: 'bold', color: theme.palette.text.primary, mb: 3, fontSize: { xs: 18, md: 20 } }}
               >
                 Features / Amenities
               </Typography>
@@ -282,7 +281,7 @@ const PropertyDetails = () => {
                   <Box
                     key={index}
                     sx={{
-                      width: { xs: '140px', md: '150px' },
+                      width: { xs: '120px', md: '150px' },
                       p: 2,
                       borderRadius: 2,
                       display: 'flex',
@@ -332,7 +331,7 @@ const PropertyDetails = () => {
                   alignItems: "center",
                   gap: 1,
                   fontWeight: 'bold',
-
+                  fontSize: { xs: 18, md: 20 }
                 }}
               >
                 <PaymentsIcon sx={{ color: primaryColor }} />
@@ -351,7 +350,7 @@ const PropertyDetails = () => {
                     <>
                       <Row label="Method:" value="Cash & Installment" />
                       <Row label="Installment:" value={property.installment_price_per_month} />
-                      <Row label="Installment Period: " value={property.installment_period_months} />
+                      <Row label={"Installment Period:\u00A0"} value={property.installment_period_months} />
                     </>
                   )}
                 </>
@@ -375,7 +374,7 @@ const PropertyDetails = () => {
                   src="https://randomuser.me/api/portraits/men/1.jpg"
                   sx={{ width: 60, height: 60, mr: 2, ml: 2 }}
                 />
-                <Typography variant="h6" sx={{ fontWeight: "bold", color: theme.palette.text.primary }}>
+                <Typography variant="h6" sx={{ fontWeight: "bold", color: theme.palette.text.primary, fontSize: { xs: 18, md: 20 } }}>
                   {property.developer}
                 </Typography>
               </Box>
@@ -402,6 +401,8 @@ const PropertyDetails = () => {
                     ':hover': {
                       backgroundColor: hoverColor,
                     },
+                    fontSize: { xs: 11, md: 14 },
+
                   }}
                   onClick={() => window.open(`tel:${property.phone}`)}
                 >
@@ -420,6 +421,8 @@ const PropertyDetails = () => {
                     ':hover': {
                       backgroundColor: hoverColor,
                     },
+                    fontSize: { xs: 11, md: 14 },
+
                   }}
                   onClick={() => window.open(`mailto:${property.email}`)}
                 >
@@ -434,11 +437,13 @@ const PropertyDetails = () => {
                     backgroundColor: theme.palette.primary.main,
                     color: 'white',
                     borderRadius: 2,
-                    flex: 1,
+                    flex: 1.2,
                     px: 2,
                     ':hover': {
                       backgroundColor: hoverColor,
                     },
+                    fontSize: { xs: 11, md: 14 },
+
                   }}
                   onClick={() => window.open(`https://wa.me/${property.phone}`, '_blank')}                >
                   <WhatsAppIcon sx={{ marginRight: 1 }} />
@@ -458,7 +463,7 @@ const PropertyDetails = () => {
 
       {/* Starting of Recommended Section */}
       <Box>
-        <Typography variant="h6" sx={{ fontWeight: "bold", color: theme.palette.text.primary, mt: 8 }}>
+        <Typography variant="h6" sx={{ fontWeight: "bold", color: theme.palette.text.primary, mt: 8, fontSize: { xs: 18, md: 20 } }}>
           Recommended For You
         </Typography>
         <Box
@@ -471,7 +476,6 @@ const PropertyDetails = () => {
             },
             flexWrap: 'wrap',
             backgroundColor: 'background.default',
-            px: { xs: 2, sm: 3, md: 5 },
             gap: 4,
             mt: 4
           }}

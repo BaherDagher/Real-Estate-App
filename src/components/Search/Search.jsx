@@ -25,7 +25,7 @@ const Search = () => {
   }, [filteredResults, didInitialLoad]);
 
   return (
-    <Box sx={{ px: { xs: 9, md: 10 }, py: 4 }}>
+    <Box sx={{ px: { xs: 2, md: 10 }, py: 4 }}>
       {/* Title */}
       <Typography
         variant="h4"
@@ -37,7 +37,7 @@ const Search = () => {
           mt: 2,
           mb: 3,
           color: "#FF8000",
-          fontSize: { xs: "28px", sm: "30px", md: "2.5rem" },
+          fontSize: { xs: '24px', sm: '30px', md: '2.5rem' },
         }}
       >
         Search for Property
@@ -49,7 +49,8 @@ const Search = () => {
           backgroundColor: 'background.paper',
           mb: 4,
           display: 'flex',
-          justifyContent: 'center'
+          justifyContent: 'center',
+          mx: { xs: 5, md: 0 }
         }}
       >
         <SearchBar isMobile={isMobile} setDrawerOpen={setDrawerOpen} />

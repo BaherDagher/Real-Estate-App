@@ -94,7 +94,9 @@ const ZoneCard = React.memo(({ zone }) => {
                                 fontWeight: 'bold',
                                 textAlign: 'center',
                                 px: 0,
-                                fontSize: { xs: 26, sm: 30, md: 35, lg: 28 }
+                                fontSize: { xs: 22, sm: 30, md: 35, lg: 28 },
+                                whiteSpace: 'nowrap',
+
                             }}
                         >
                             {zone.district},
@@ -104,7 +106,7 @@ const ZoneCard = React.memo(({ zone }) => {
                     </Box>
                 </CardActionArea>
             </Card>
-        </Box>
+        </Box >
     );
 
 });

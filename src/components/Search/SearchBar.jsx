@@ -86,7 +86,7 @@ const SearchBar = ({ setDrawerOpen, isMobile }) => {
     <Paper
       elevation={3}
       sx={{
-        width: "100%",
+        width: '100%',
         p: 2,
         borderRadius: 2,
         display: "flex",
@@ -146,6 +146,8 @@ const SearchBar = ({ setDrawerOpen, isMobile }) => {
               ":hover": {
                 backgroundColor: hoverColor,
               },
+              fontSize: { xs: 12 }
+
             }}
             onClick={() => setDrawerOpen(true)}
           >
@@ -163,6 +165,7 @@ const SearchBar = ({ setDrawerOpen, isMobile }) => {
               ":hover": {
                 backgroundColor: hoverColor,
               },
+              fontSize: { xs: 12 }
             }}
             onClick={() => {
               handleSearchReset();

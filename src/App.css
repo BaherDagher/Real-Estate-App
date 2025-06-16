@@ -2,3 +2,11 @@
         font-size: 14px !important;
         padding: 8px 12px !important;
     }
+
+    .custom-toast {
+  width: auto !important;
+  min-width: 250px !important;
+  max-width: 90vw !important;
+  margin: 8px !important;
+  box-sizing: border-box;
+}

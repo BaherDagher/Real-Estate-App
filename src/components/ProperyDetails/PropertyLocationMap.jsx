@@ -7,6 +7,8 @@ import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
 import markerIcon from 'leaflet/dist/images/marker-icon.png';
 import markerShadow from 'leaflet/dist/images/marker-shadow.png';
 import MapLoader from './MapLoader';
+import { Box } from '@mui/material';
+
 
 // Fix leaflet's default icon URLs
 delete L.Icon.Default.prototype._getIconUrl;
@@ -16,7 +18,7 @@ L.Icon.Default.mergeOptions({
     shadowUrl: markerShadow,
 });
 
-const PropertyLocationMap = ({ district, city, key }) => {
+const PropertyLocationMap = ({ district, city }) => {
 
     const [position, setPosition] = useState(null);
 
@@ -40,28 +42,26 @@ const PropertyLocationMap = ({ district, city, key }) => {
     };
     useEffect(() => {
         fetchPosition();
-    }, [district, city, fetchPosition]);
+    }, [district, city]);
 
     if (!position) {
         return <MapLoader />
     }
 
     return (
-        <MapContainer
-            center={position}
-            zoom={13}
-            style={{ height: '400px', width: '100%', borderRadius: '20px', zIndex: 1 }}
-        >
-            <TileLayer
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 
-            />
-            <Marker position={position}>
-                <Popup>
-                    {district}, {city}
-                </Popup>
-            </Marker>
-        </MapContainer>
+        <Box sx={{ height: { xs: '200px', md: '400px' }, width: '100%' }}>
+            <MapContainer
+                center={position}
+                zoom={13}
+                style={{ height: '100%', width: '100%', borderRadius: '20px', zIndex: 1 }}
+            >
+                <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+                <Marker position={position}>
+                    <Popup>{district}, {city}</Popup>
+                </Marker>
+            </MapContainer>
+        </Box>
     );
 };
 

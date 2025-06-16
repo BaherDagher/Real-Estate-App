@@ -57,7 +57,7 @@ const SelectedZone = () => {
                     mb: 5,
                     mt: 6,
                     color: '#FF8000',
-                    fontSize: { xs: '28px', sm: '30px', md: '2.5rem' },
+                    fontSize: { xs: '22px', sm: '30px', md: '2.5rem' },
                 }}
             >
                 {district} Sale Properties
@@ -107,7 +107,7 @@ const SelectedZone = () => {
                     mb: 5,
                     mt: 6,
                     color: '#FF8000',
-                    fontSize: { xs: '28px', sm: '30px', md: '2.5rem' },
+                    fontSize: { xs: '22px', sm: '30px', md: '2.5rem' },
                 }}
             >
                 {district} Rent Properties

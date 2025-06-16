@@ -26,7 +26,7 @@ const Favourites = () => {
               mt: 4,
               mb: 3,
               color: '#FF8000',
-              fontSize: { xs: '28px', sm: '30px', md: '2.5rem' },
+              fontSize: { xs: '24px', sm: '30px', md: '2.5rem' },
             }}
           >
             Favourite Properties

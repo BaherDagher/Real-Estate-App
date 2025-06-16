@@ -68,14 +68,14 @@ const PropertyCard = React.memo(({ property }) => {
                         className="image-container"
                         sx={{
                             overflow: 'hidden',
-                            height: 300,
+                            height: { sx: 200, md: 300 }
                         }}
                     >
                         <Box
                             className="image-zoom"
                             sx={{
                                 transition: 'transform 0.5s ease-in-out',
-                                height: 300,
+                                height: { sx: 200, md: 300 }
                             }}
                         >
                             <LazyLoadImage
@@ -100,16 +100,20 @@ const PropertyCard = React.memo(({ property }) => {
                                 whiteSpace: 'nowrap',
                                 display: 'block',
                                 maxWidth: '100%',
+                                fontSize: { xs: 14, md: 18 },
+                                // fontWeight: { xs: 'bold' }
                             }}>
                                 {property.name}
                             </Typography>
 
                             <Typography variant="h6" component="div" sx={{
-                                fontSize: 18, overflow: 'hidden',
+                                overflow: 'hidden',
                                 textOverflow: 'ellipsis',
                                 whiteSpace: 'nowrap',
                                 display: 'block',
                                 maxWidth: '100%',
+                                fontSize: { xs: 14, md: 18 }
+
                             }} >
                                 {property.for_rent ? property.rent_price : property.price}
                             </Typography>
@@ -126,34 +130,66 @@ const PropertyCard = React.memo(({ property }) => {
                                 display: 'block',
                                 maxWidth: '100%',
                                 marginLeft: "1px",
-                                marginTop: 1
+                                marginTop: 1,
+                                fontSize: { xs: 13, md: 14 },
+
                             }}
                         >
                             {property.description}
                         </Typography>
-                        <Box sx={{ display: 'flex', justifyContent: "space-between", alignItems: "center", alignContent: 'center' }}>
-                            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mt: 2 }}>
-                                <LocationOnIcon sx={{ marginLeft: "-5px" }}></LocationOnIcon>
-                                <Typography variant='body2' sx={{
-                                    color: 'text.secondary',
+
+
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                mt: 2,
+                                gap: 1,
+                                flexWrap: 'nowrap',
+                            }}
+                        >
+                            <LocationOnIcon sx={{ marginLeft: "-5px" }} />
+
+                            <Box
+                                sx={{
+                                    flexBasis: '80%',
                                     overflow: 'hidden',
-                                    textOverflow: 'ellipsis',
-                                    whiteSpace: 'nowrap',
-                                    display: 'block',
-                                    maxWidth: '100%'
-                                }}>
+                                }}
+                            >
+                                <Typography
+                                    variant='body2'
+                                    sx={{
+                                        color: 'text.secondary',
+                                        overflow: 'hidden',
+                                        textOverflow: 'ellipsis',
+                                        whiteSpace: 'nowrap',
+                                        fontSize: { xs: 12, md: 14 },
+                                    }}
+                                >
                                     {`${property.address} , ${property.district}, ${property.city}`}
                                 </Typography>
                             </Box>
-                            <Typography variant='body2' sx={{
-                                color: 'text.secondary',
-                                mt: 2,
-                                mr: "2px",
-                            }}>
-                                {property.for_rent ? 'For Rent' : 'For Sale'}
-                            </Typography>
 
+                            <Box
+                                sx={{
+                                    flexBasis: '20%',
+                                    textAlign: 'right',
+                                }}
+                            >
+                                <Typography
+                                    variant='body2'
+                                    sx={{
+                                        color: 'text.secondary',
+                                        fontSize: { xs: 12, md: 14 },
+                                        whiteSpace: 'nowrap',
+                                    }}
+                                >
+                                    {property.for_rent ? 'For Rent' : 'For Sale'}
+                                </Typography>
+                            </Box>
                         </Box>
+
+
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mt: 2 }}>
                             <SingleBedIcon sx={{ fontSize: 26, marginLeft: "-5px" }} />
                             <Typography variant="body2" sx={{ color: 'text.secondary' }}>
@@ -209,6 +245,8 @@ const PropertyCard = React.memo(({ property }) => {
                             ':hover': {
                                 backgroundColor: hoverColor,
                             },
+                            fontSize: { xs: 12, md: 14 },
+
                         }}
                         onClick={() => window.open(`tel:${property.phone}`)}
                     >
@@ -227,6 +265,8 @@ const PropertyCard = React.memo(({ property }) => {
                             ':hover': {
                                 backgroundColor: hoverColor,
                             },
+                            fontSize: { xs: 12, md: 14 },
+
                         }}
                         onClick={() => window.open(`mailto:${property.email}`)}
                     >
@@ -245,6 +285,8 @@ const PropertyCard = React.memo(({ property }) => {
                             ':hover': {
                                 backgroundColor: hoverColor,
                             },
+                            fontSize: { xs: 12, md: 14 },
+
                         }}
                         onClick={() => {
                             favouriteAction(property);

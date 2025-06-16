@@ -65,7 +65,7 @@ const HeroImage = () => {
                     textAlign: 'center',
                     px: 2,
                     animation: 'fadeIn 2s ease-in-out',
-                    fontSize: { xs: 26, sm: 30, md: 35, lg: 45 }
+                    fontSize: { xs: 22, sm: 30, md: 35, lg: 45 }
                 }}
             >
                 Your Future Home Is Right Here

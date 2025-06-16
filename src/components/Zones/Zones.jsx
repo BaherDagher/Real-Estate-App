@@ -41,9 +41,9 @@ const Zones = () => {
                         textTransform: 'uppercase',
                         textAlign: 'center',
                         mb: 5,
-                        mt: 6,
+                        mt: { xs: 10, md: 6 },
                         color: '#FF8000',
-                        fontSize: { xs: '28px', sm: '30px', md: '2.5rem' },
+                        fontSize: { xs: '24px', sm: '30px', md: '2.5rem' },
                     }}
                 >
                     Explore Zones

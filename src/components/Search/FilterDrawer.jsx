@@ -42,7 +42,7 @@ const FilterDrawer = ({ open, onClose }) => {
 
   return (
     <Drawer anchor="left" open={open} onClose={onClose}>
-      <Box sx={{ width: 300, p: 4 }}>
+      <Box sx={{ width: 200, p: 4 }}>
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           <Typography variant="h6">Filters</Typography>
           <IconButton onClick={onClose}>
