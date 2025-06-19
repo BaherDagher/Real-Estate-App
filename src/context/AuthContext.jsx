@@ -24,30 +24,49 @@ const AuthContextProvider = ({ children }) => {
   }, [currentUser]);
 
   const register = async ({ name, email, password, role = "user" }) => {
-    const { data: existingUsers } = await axios.get(
-      `https://684b446a165d05c5d35c0248.mockapi.io/propertiesapi/users?email=${email}`
-    );
-    if (existingUsers.length > 0) throw new Error("Email already registered");
+    try {
+      const { data: existingUsers } = await axios.get(
+        `https://684b446a165d05c5d35c0248.mockapi.io/propertiesapi/users?email=${email}`
+      );
 
-    const { data } = await axios.post("https://684b446a165d05c5d35c0248.mockapi.io/propertiesapi/users", {
-      name,
-      email,
-      password,
-      role,
-    });
+      if (existingUsers.length > 0) {
+        throw new Error("Email already registered");
+      }
+    } catch (err) {
+      // 404 means no user with this email — we can safely register
+      if (err.response?.status !== 404) {
+        throw err; // Unexpected error, rethrow
+      }
+    }
+
+    const { data } = await axios.post(
+      "https://684b446a165d05c5d35c0248.mockapi.io/propertiesapi/users",
+      { name, email, password, role }
+    );
 
     setCurrentUser(data);
     return data;
   };
 
   const login = async (email, password) => {
-    const { data } = await axios.get(
-      `https://684b446a165d05c5d35c0248.mockapi.io/propertiesapi/users?email=${email}&password=${password}`
-    );
-    if (data.length === 0) throw new Error("Invalid credentials");
+    try {
+      const { data } = await axios.get(
+        `https://684b446a165d05c5d35c0248.mockapi.io/propertiesapi/users?email=${email}`
+      );
 
-    setCurrentUser(data[0]);
-    return data[0];
+      if (!data.length || data[0].password !== password) {
+        throw new Error("Invalid credentials");
+      }
+
+      setCurrentUser(data[0]);
+      return data[0];
+    } catch (err) {
+      if (err.response?.status === 404) {
+        throw new Error("User not found");
+      } else {
+        throw err;
+      }
+    }
   };
 
   const logout = () => {
